@@ -15,6 +15,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
+        tableView.register(TopTableViewCell.self,
+                           forCellReuseIdentifier: TopTableViewCell.identifier)
         tableView.backgroundColor = .systemGray5
         tableView.dataSource = self
         tableView.delegate = self
@@ -54,17 +56,30 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: - Actions
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return models.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
+        return models[section].options.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let model = models[indexPath.section].options[indexPath.row]
+        switch model.self {
+        case .topCell(let model):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TopTableViewCell.identifier, for: indexPath) as? TopTableViewCell else { return UITableViewCell() }
+            cell.configure(with: model)
+            return cell
+        }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let type = models[indexPath.section].options[indexPath.row]
+        switch type.self {
+        case .topCell(let model):
+            model.handler()
+        }
     }
-
 }
-
