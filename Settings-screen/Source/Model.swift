@@ -21,16 +21,16 @@ class Model {
             .switchCell(model: SettingsSwitchOption(title: "Авиарежим", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemOrange, isOn: false, handler: {
                 print("Нажатие на Авиарежим")
             })),
-            .staticCell(model: SettingsOption(title: "Wi-Fi", icon: UIImage(systemName: "wifi"), iconBackgroundColor: .systemBlue, handler: {
+            .staticCell(model: SettingsOption(title: "Wi-Fi", icon: UIImage(systemName: "wifi"), iconBackgroundColor: .systemBlue, optionalText: "Не подключено", handler: {
                 print("Нажатие на WiFi")
             })),
-            .staticCell(model: SettingsOption(title: "Bluetooth", icon: UIImage(systemName: "dot.radiowaves.left.and.right"), iconBackgroundColor: .systemBlue, handler: {
+            .staticCell(model: SettingsOption(title: "Bluetooth", icon: UIImage(systemName: "dot.radiowaves.left.and.right"), iconBackgroundColor: .systemBlue, optionalText: "Выкл.", handler: {
                 print("Нажатие на Bluetooth")
             })),
-            .staticCell(model: SettingsOption(title: "Cотовая связь", icon: UIImage(systemName: "antenna.radiowaves.left.and.right"), iconBackgroundColor: .systemGreen, handler: {
+            .staticCell(model: SettingsOption(title: "Cотовая связь", icon: UIImage(systemName: "antenna.radiowaves.left.and.right"), iconBackgroundColor: .systemGreen, optionalText: "", handler: {
                 print("Нажатие на Cотовая связь")
             })),
-            .staticCell(model: SettingsOption(title: "Режим модема", icon: UIImage(systemName: "personalhotspot"), iconBackgroundColor: .systemGreen, handler: {
+            .staticCell(model: SettingsOption(title: "Режим модема", icon: UIImage(systemName: "personalhotspot"), iconBackgroundColor: .systemGreen, optionalText: "Выкл.", handler: {
                 print("Нажатие на Режим модема")
             })),
             .switchCell(model: SettingsSwitchOption(title: "VPN", icon: UIImage(systemName: "lock.shield"), iconBackgroundColor: .systemBlue, isOn: false, handler: {
@@ -39,16 +39,16 @@ class Model {
         )
         
         models.append(Section(options: [
-            .staticCell(model: SettingsOption(title: "Уведомления", icon: UIImage(systemName: "bell.badge"), iconBackgroundColor: .systemRed, handler: {
+            .staticCell(model: SettingsOption(title: "Уведомления", icon: UIImage(systemName: "bell.badge"), iconBackgroundColor: .systemRed, optionalText: "", handler: {
                 print("Нажатие на Уведомления")
             })),
-            .staticCell(model: SettingsOption(title: "Звуки", icon: UIImage(systemName: "speaker.wave.3"), iconBackgroundColor: .systemPink, handler: {
+            .staticCell(model: SettingsOption(title: "Звуки", icon: UIImage(systemName: "speaker.wave.3"), iconBackgroundColor: .systemPink, optionalText: "", handler: {
                 print("Нажатие на Звуки")
             })),
-            .staticCell(model: SettingsOption(title: "Фокусирование", icon: UIImage(systemName: "moon"), iconBackgroundColor: .systemPurple, handler: {
+            .staticCell(model: SettingsOption(title: "Фокусирование", icon: UIImage(systemName: "moon"), iconBackgroundColor: .systemPurple, optionalText: "", handler: {
                 print("Нажатие на Фокусирование")
             })),
-            .staticCell(model: SettingsOption(title: "Экранное время", icon: UIImage(systemName: "hourglass"), iconBackgroundColor: .systemPurple, handler: {
+            .staticCell(model: SettingsOption(title: "Экранное время", icon: UIImage(systemName: "hourglass"), iconBackgroundColor: .systemPurple, optionalText: "", handler: {
                 print("Нажатие на Экранное время")
             }))])
         )
@@ -57,19 +57,19 @@ class Model {
             .badgeCell(model: SettingsBadgeOption(title: "Основные", icon: UIImage(systemName: "gear"), iconBackgroundColor: .systemGray, badgeLabel: "1", handler: {
                 print("Нажатие на Основные")
             })),
-            .staticCell(model: SettingsOption(title: "Пункт управления", icon: UIImage(systemName: "switch.2"), iconBackgroundColor: .systemGray, handler: {
+            .staticCell(model: SettingsOption(title: "Пункт управления", icon: UIImage(systemName: "switch.2"), iconBackgroundColor: .systemGray, optionalText: "", handler: {
                 print("Нажатие на Пункт управления")
             })),
-            .staticCell(model: SettingsOption(title: "Экран и яркость", icon: UIImage(systemName: "textformat.size"), iconBackgroundColor: .systemBlue, handler: {
+            .staticCell(model: SettingsOption(title: "Экран и яркость", icon: UIImage(systemName: "textformat.size"), iconBackgroundColor: .systemBlue, optionalText: "", handler: {
                 print("Нажатие на Экран и яркость")
             })),
-            .staticCell(model: SettingsOption(title: "Экран домой", icon: UIImage(systemName: "apps.iphone"), iconBackgroundColor: .systemBlue, handler: {
+            .staticCell(model: SettingsOption(title: "Экран домой", icon: UIImage(systemName: "apps.iphone"), iconBackgroundColor: .systemBlue, optionalText: "", handler: {
                 print("Нажатие на Экран домой")
             })),
-            .staticCell(model: SettingsOption(title: "Универсальный доступ", icon: UIImage(systemName: "figure.wave.circle"), iconBackgroundColor: .systemBlue, handler: {
+            .staticCell(model: SettingsOption(title: "Универсальный доступ", icon: UIImage(systemName: "figure.wave.circle"), iconBackgroundColor: .systemBlue, optionalText: "", handler: {
                 print("Нажатие на Универсальный доступ")
             })),
-            .staticCell(model: SettingsOption(title: "Обои", icon: UIImage(systemName: "paintbrush.fill"), iconBackgroundColor: .systemCyan, handler: {
+            .staticCell(model: SettingsOption(title: "Обои", icon: UIImage(systemName: "paintbrush.fill"), iconBackgroundColor: .systemCyan, optionalText: "", handler: {
                 print("Нажатие на Обои")
             }))])
         )
@@ -92,6 +92,7 @@ struct SettingsOption {
     let title: String
     let icon: UIImage?
     let iconBackgroundColor: UIColor
+    let optionalText: String
     let handler: (() -> Void)
 }
 

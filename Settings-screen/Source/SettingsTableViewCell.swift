@@ -35,11 +35,21 @@ class SettingsTableViewCell: UITableViewCell {
         return label
     }()
     
+    private let optionalLabel: UILabel = {
+        let optionalLabel = UILabel()
+        optionalLabel.numberOfLines = 1
+        optionalLabel.textColor = .systemGray
+        optionalLabel.textAlignment = .right
+        optionalLabel.translatesAutoresizingMaskIntoConstraints = false
+        return optionalLabel
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         contentView.addSubview(label)
         contentView.addSubview(iconContainer)
+        contentView.addSubview(optionalLabel)
         iconContainer.addSubview(iconImageView)
         
         contentView.clipsToBounds = true
@@ -65,12 +75,18 @@ class SettingsTableViewCell: UITableViewCell {
                              y: 0,
                              width: contentView.frame.size.width - 20 - iconContainer.frame.size.width,
                              height: contentView.frame.size.height)
+        
+        optionalLabel.frame = CGRect(x: 190,
+                                     y: 0,
+                                     width: 125,
+                                     height: contentView.frame.size.height)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         iconImageView.image = nil
         label.text = nil
+        optionalLabel.text = nil
         iconContainer.backgroundColor = nil
     }
     
@@ -78,6 +94,7 @@ class SettingsTableViewCell: UITableViewCell {
         label.text = model.title
         iconImageView.image = model.icon
         iconContainer.backgroundColor = model.iconBackgroundColor
+        optionalLabel.text = model.optionalText
     }
 
 }
