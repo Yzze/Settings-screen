@@ -32,4 +32,30 @@ class TopTableViewCell: UITableViewCell {
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         return subtitleLabel
     }()
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        contentView.addSubview(subtitleLabel)
+        contentView.addSubview(iconImageView)
+        contentView.addSubview(titleLabel)
+        
+        contentView.clipsToBounds = true
+        accessoryType = .disclosureIndicator
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        iconImageView.frame = CGRect(x: 15, y: 15, width: 70, height: 70)
+        
+        titleLabel.frame = CGRect(x: 100, y: 15, width: 200, height: 25)
+        
+        subtitleLabel.frame = CGRect(x: 100, y: 50, width: 180, height: 35)
+        
+    }
 }
