@@ -44,4 +44,43 @@ class BadgeTableViewCell: UITableViewCell {
         badgeLabel.translatesAutoresizingMaskIntoConstraints = false
         return badgeLabel
     }()
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        contentView.addSubview(label)
+        contentView.addSubview(iconContainer)
+        contentView.addSubview(badgeLabel)
+        iconContainer.addSubview(iconImageView)
+        
+        contentView.clipsToBounds = true
+        accessoryType = .none
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let size: CGFloat = contentView.frame.size.height - 12
+        iconContainer.frame = CGRect(x: 15, y: 6, width: size, height: size)
+        
+        let imageSize: CGFloat = size/1.5
+        iconImageView.frame = CGRect(x: (size-imageSize)/2,
+                                     y: (size-imageSize)/2,
+                                     width: imageSize,
+                                     height: imageSize)
+        
+        badgeLabel.sizeToFit()
+        badgeLabel.frame = CGRect(x: (contentView.frame.size.width - badgeLabel.frame.size.width) - 30.0,
+                                  y: 9,
+                                  width: 22,
+                                  height: 22)
+        
+        label.frame = CGRect(x: 25 + iconContainer.frame.size.width,
+                             y: 0,
+                             width: contentView.frame.size.width - 20 - iconContainer.frame.size.width,
+                             height: contentView.frame.size.height)
+    }
 }
