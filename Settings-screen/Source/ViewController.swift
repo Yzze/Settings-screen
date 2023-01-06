@@ -21,6 +21,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                            forCellReuseIdentifier: SettingsTableViewCell.identifier)
         tableView.register(SwitchTableViewCell.self,
                            forCellReuseIdentifier: SwitchTableViewCell.identifier)
+        tableView.register(BadgeTableViewCell.self,
+                           forCellReuseIdentifier: BadgeTableViewCell.identifier)
         tableView.backgroundColor = .systemGray5
         tableView.dataSource = self
         tableView.delegate = self
@@ -83,6 +85,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.identifier, for: indexPath) as? SwitchTableViewCell else { return UITableViewCell() }
             cell.configure(with: model)
             return cell
+        case .badgeCell(let model):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: BadgeTableViewCell.identifier, for: indexPath) as? BadgeTableViewCell else { return UITableViewCell() }
+            cell.configure(with: model)
+            return cell
         }
     }
     
@@ -95,6 +101,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         case .staticCell(let model):
             model.handler()
         case .switchCell(let model):
+            model.handler()
+        case .badgeCell(let model):
             model.handler()
         }
     }
