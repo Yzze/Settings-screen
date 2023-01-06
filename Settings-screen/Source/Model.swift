@@ -36,3 +36,11 @@ struct TopCellOption {
     let subtitleText: String
     let handler: (() -> Void)
 }
+
+struct SettingsBadgeOption {
+    let title: String
+    let icon: UIImage?
+    let iconBackgroundColor: UIColor
+    let badgeLabel: String
+    let handler: (() -> Void)
+}
