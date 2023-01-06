@@ -18,6 +18,9 @@ class Model {
         ]))
         
         models.append(Section(options: [
+            .switchCell(model: SettingsSwitchOption(title: "Авиарежим", icon: UIImage(systemName: "airplane"), iconBackgroundColor: .systemOrange, isOn: false, handler: {
+                print("Нажатие на Авиарежим")
+            })),
             .staticCell(model: SettingsOption(title: "Wi-Fi", icon: UIImage(systemName: "wifi"), iconBackgroundColor: .systemBlue, handler: {
                 print("Нажатие на WiFi")
             })),
@@ -29,6 +32,9 @@ class Model {
             })),
             .staticCell(model: SettingsOption(title: "Режим модема", icon: UIImage(systemName: "personalhotspot"), iconBackgroundColor: .systemGreen, handler: {
                 print("Нажатие на Режим модема")
+            })),
+            .switchCell(model: SettingsSwitchOption(title: "VPN", icon: UIImage(systemName: "lock.shield"), iconBackgroundColor: .systemBlue, isOn: false, handler: {
+                print("Нажатие на VPN")
             }))])
         )
         
