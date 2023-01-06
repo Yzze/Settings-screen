@@ -9,6 +9,8 @@ import UIKit
 
 class TopTableViewCell: UITableViewCell {
     
+    static let identifier = "TopTableViewCell"
+    
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 35
