@@ -32,5 +32,12 @@ class SwitchTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    private let mySwitch: UISwitch = {
+        let mySwitch = UISwitch()
+        mySwitch.onTintColor = .systemGreen
+        mySwitch.translatesAutoresizingMaskIntoConstraints = false
+        return mySwitch
+    }()
 
 }
