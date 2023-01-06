@@ -32,4 +32,16 @@ class BadgeTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    private let badgeLabel: UILabel = {
+        let badgeLabel = UILabel()
+        badgeLabel.font = .systemFont(ofSize: 14)
+        badgeLabel.layer.cornerRadius = 11
+        badgeLabel.backgroundColor = .systemRed
+        badgeLabel.textAlignment = .center
+        badgeLabel.textColor = .white
+        badgeLabel.clipsToBounds = true
+        badgeLabel.translatesAutoresizingMaskIntoConstraints = false
+        return badgeLabel
+    }()
 }
