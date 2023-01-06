@@ -11,7 +11,11 @@ class Model {
     var models = [Section]()
     
     func configure() {
-        
+        models.append(Section(options: [
+            .topCell(model: TopCellOption(icon: UIImage(named: "swift"), title: "Ян Жигурс", subtitleText: "Apple ID, iCloud, контент и покупки", handler: {
+                print("Главная ячейка")
+            }))
+        ]))
     }
 }
 
