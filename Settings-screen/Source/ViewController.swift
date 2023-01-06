@@ -106,4 +106,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             model.handler()
         }
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 && indexPath.section == 0 {
+            return 100
+        }
+        return 40
+    }
 }
