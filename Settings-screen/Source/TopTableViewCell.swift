@@ -58,4 +58,17 @@ class TopTableViewCell: UITableViewCell {
         subtitleLabel.frame = CGRect(x: 100, y: 50, width: 180, height: 35)
         
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        iconImageView.image = nil
+        titleLabel.text = nil
+        subtitleLabel.text = nil
+    }
+        
+    public func configure(with model: TopCellOption) {
+        titleLabel.text = model.title
+        subtitleLabel.text = model.subtitleText
+        iconImageView.image = model.icon
+    }
 }
