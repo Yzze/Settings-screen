@@ -8,16 +8,12 @@
 import UIKit
 
 class TopTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    
+    private let iconImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.layer.cornerRadius = 35
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
 }
