@@ -8,6 +8,8 @@
 import UIKit
 
 class BadgeTableViewCell: UITableViewCell {
+    
+    static let identifier = "BadgeTableViewCell"
 
     private let iconContainer: UIView = {
         let view = UIView()
@@ -82,5 +84,20 @@ class BadgeTableViewCell: UITableViewCell {
                              y: 0,
                              width: contentView.frame.size.width - 20 - iconContainer.frame.size.width,
                              height: contentView.frame.size.height)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        iconImageView.image = nil
+        label.text = nil
+        iconContainer.backgroundColor = nil
+        badgeLabel.text = nil
+    }
+    
+    public func configure(with model: SettingsBadgeOption) {
+        label.text = model.title
+        iconImageView.image = model.icon
+        iconContainer.backgroundColor = model.iconBackgroundColor
+        badgeLabel.text = model.badgeLabel
     }
 }
