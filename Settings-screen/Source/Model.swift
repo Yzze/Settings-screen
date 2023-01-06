@@ -21,3 +21,11 @@ struct SettingsOption {
     let iconBackgroundColor: UIColor
     let handler: (() -> Void)
 }
+
+struct SettingsSwitchOption {
+    let title: String
+    let icon: UIImage?
+    let iconBackgroundColor: UIColor
+    let isOn: Bool
+    let handler: (() -> Void)
+}
