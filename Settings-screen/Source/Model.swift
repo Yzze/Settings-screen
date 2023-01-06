@@ -54,7 +54,7 @@ class Model {
         )
         
         models.append(Section(options: [
-            .staticCell(model: SettingsOption(title: "Основные", icon: UIImage(systemName: "gear"), iconBackgroundColor: .systemGray4, handler: {
+            .badgeCell(model: SettingsBadgeOption(title: "Основные", icon: UIImage(systemName: "gear"), iconBackgroundColor: .systemGray4, badgeLabel: "1", handler: {
                 print("Нажатие на Основные")
             })),
             .staticCell(model: SettingsOption(title: "Пункт управления", icon: UIImage(systemName: "switch.2"), iconBackgroundColor: .systemGray4, handler: {
