@@ -29,3 +29,10 @@ struct SettingsSwitchOption {
     let isOn: Bool
     let handler: (() -> Void)
 }
+
+struct TopCellOption {
+    let icon: UIImage?
+    let title: String
+    let subtitleText: String
+    let handler: (() -> Void)
+}
