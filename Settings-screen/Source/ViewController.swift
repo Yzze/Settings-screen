@@ -17,6 +17,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.register(TopTableViewCell.self,
                            forCellReuseIdentifier: TopTableViewCell.identifier)
+        tableView.register(SettingsTableViewCell.self,
+                           forCellReuseIdentifier: SettingsTableViewCell.identifier)
         tableView.backgroundColor = .systemGray5
         tableView.dataSource = self
         tableView.delegate = self
@@ -71,6 +73,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TopTableViewCell.identifier, for: indexPath) as? TopTableViewCell else { return UITableViewCell() }
             cell.configure(with: model)
             return cell
+        case .staticCell(let model):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.identifier, for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
+            cell.configure(with: model)
+            return cell
         }
     }
     
@@ -79,6 +85,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let type = models[indexPath.section].options[indexPath.row]
         switch type.self {
         case .topCell(let model):
+            model.handler()
+        case .staticCell(let model):
             model.handler()
         }
     }
