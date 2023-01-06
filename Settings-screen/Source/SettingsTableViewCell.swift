@@ -8,6 +8,8 @@
 import UIKit
 
 class SettingsTableViewCell: UITableViewCell {
+    
+    static let identifier = "SettingsTableViewCell"
 
     private let iconContainer: UIView = {
         let view = UIView()
@@ -63,6 +65,19 @@ class SettingsTableViewCell: UITableViewCell {
                              y: 0,
                              width: contentView.frame.size.width - 20 - iconContainer.frame.size.width,
                              height: contentView.frame.size.height)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        iconImageView.image = nil
+        label.text = nil
+        iconContainer.backgroundColor = nil
+    }
+    
+    public func configure(with model: SettingsOption) {
+        label.text = model.title
+        iconImageView.image = model.icon
+        iconContainer.backgroundColor = model.iconBackgroundColor
     }
 
 }
