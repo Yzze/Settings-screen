@@ -8,11 +8,22 @@
 import UIKit
 
 class Model {
-    
+    var models = [Section]()
     
     func configure() {
         
     }
+}
+
+struct Section {
+    let options: [SettingsOptionType]
+}
+
+enum SettingsOptionType {
+    case staticCell(model: SettingsOption)
+    case switchCell(model: SettingsSwitchOption)
+    case topCell(model: TopCellOption)
+    case badgeCell(model: SettingsBadgeOption)
 }
 
 struct SettingsOption {
