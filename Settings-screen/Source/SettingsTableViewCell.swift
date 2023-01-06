@@ -17,5 +17,13 @@ class SettingsTableViewCell: UITableViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
+    private let iconImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.tintColor = .white
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
 
 }
