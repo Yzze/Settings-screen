@@ -24,4 +24,12 @@ class TopTableViewCell: UITableViewCell {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         return titleLabel
     }()
+    
+    private let subtitleLabel: UILabel = {
+        let subtitleLabel = UILabel()
+        subtitleLabel.numberOfLines = 2
+        subtitleLabel.font = .systemFont(ofSize: 14)
+        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        return subtitleLabel
+    }()
 }
